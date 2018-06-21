@@ -1,33 +1,37 @@
 #!/bin/bash
 
 g(){
-	echo "    "
+	echo "            "
+}
+
+p(){
+	echo "      "
 }
 
 backlight(){
 	local level=$(xbacklight)
 	if [[ $level == "100.000000" ]]; then
-		echo "\ue1c2"
+		echo "\uf005"
 	elif [[ $level == "0.000000" ]]; then
-		echo "\ue0e6"
+		echo "\uf006"
 	else
-		echo "\ue1c3"
+		echo "\uf123"
 	fi
 }
 
 network(){
 	if [[ $(iw wlp3s0 link) == "Not connected." ]]; then
-		echo "\ue0b1"
+		echo "\uf08a"
 	else
-		echo "\ue107"
+		echo "\uf004"
 	fi
 }
 
 ac(){
-	if [[ $(acpi | cut -d, -f1) == "Battery 0: Charging" ]]; then
-		echo "\ue099"
+	if [[ $(acpi | grep -o 'Discharging' | cut -d, -f1) == "Discharging" ]]; then
+		echo "\uf1e6"
 	else
-		echo "\ue0f7"
+		echo "\uf0e7"
 	fi
 }
 
@@ -37,36 +41,43 @@ clock(){
 
 mute(){
 	if [[ $(amixer get Master | awk '/Mono:/ {print $6}') == "[off]" ]]; then
-		echo "\ue202"
+		echo "\uf026"
 	else
-		echo "\ue203"
+		echo "\uf028"
 	fi
 }
 
 volume(){
-	echo -e "$(mute)  $(amixer -c 0 get Master | awk '/Mono:/ {print $4}' | tr -d '[]%,')"
+	echo -e "$(mute)    $(amixer -c 0 get Master | awk '/Mono:/ {print $4}' | tr -d '[]%,')"
 }
 
 battery(){
-	local level=$(acpi --battery | cut -d, -f2 | tr -d ' []%')
+	local level0=$(acpi --battery | grep 'Battery 0' | cut -d, -f2 | tr -d ' []%')
+	local level1=$(acpi --battery | grep 'Battery 1' | cut -d, -f2 | tr -d ' []%')
+	let "level = level0/2 + level1/2"
 	if [[ $level > 80 ]]; then
-		echo "\ue1ff  $level"
+		echo "\uf240    $level"
+	elif [[ $level > 60 ]]; then
+		echo "\uf241    $level"
+	elif [[ $level > 40 ]]; then
+		echo "\uf242    $level"
 	elif [[ $level > 20 ]]; then
-		echo "\ue1fe  $level"
+		echo "\uf243    $level"
 	else
-		echo "\ue1fd  $level"
+		echo "\uf244    $level"
 	fi
+
 }
 
 update(){
 	while true; do
-		echo -e "%{F#839496}%{l}$(g)$(backlight)$(g)$(network)$(g)$(ac)%{c}$(clock)%{r}$(volume)$(g)$(battery)$(g)"
+		echo -e "%{F#839496}%{B#12333b}%{l}$(g)$(backlight)$(g)$(network)$(g)$(ac)$(g)%{r}%{B#12333b}$(g)$(volume)$(g)$(battery)$(g)%{B#839496}%{F#071d22}$(g)$(clock)$(g)%{B#071d22}"
 		sleep 1
 	done
 }
 
 update | lemonbar \
-	-f "tewi-8" -f "Siji-8" \
-	-g 1366x24+0+0 \
+	-f "IBM Plex Sans Regular:size=12" -f "Font Awesome:size=14" \
+	-g 1920x33+0+0 \
 	-B#071d22
 	#-g 1366x24+0+0 \

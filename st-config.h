@@ -5,7 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "tewi:pixelsize=12:antialias=true:autohint=true";
+//static char *font = "Noto Sans Mono:size=10:antialias=true:autohint=true";
+static char *font = "IBM Plex Mono:size=10:antialias=true:autohint=true";
 static int borderpx = 16;
 
 /*
@@ -109,7 +110,7 @@ static const char *colorname[] = {
 	"#657694",
 	"#555555",*/
 	
-	"#073642",  /*  0: black    */
+	"#071d22",  /*  0: black    */
 	"#dc322f",  /*  1: red      */
 	"#859900",  /*  2: green    */
 	"#b58900",  /*  3: yellow   */
@@ -134,7 +135,7 @@ static const char *colorname[] = {
  * foreground, background, cursor, reverse cursor
  */
 unsigned int defaultfg = 12;
-unsigned int defaultbg = 8;
+unsigned int defaultbg = 0;
 static unsigned int defaultcs = 14;
 static unsigned int defaultrcs = 15;
 
