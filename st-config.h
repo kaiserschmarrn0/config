@@ -16,7 +16,7 @@ static int borderpx = 16;
  * 4: value of shell in /etc/passwd
  * 5: value of shell in config.h
  */
-static char *shell = "/bin/sh";
+static char *shell = "/bin/mksh";
 char *utmp = NULL;
 char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400";
 
@@ -84,31 +84,48 @@ unsigned int tabspaces = 8;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	/* 8 normal colors */
-	"#eee8d5",
-	"#dc322f",
-	"#859900",
-	"#b58900",
-	"#268bd2",
-	"#d33682",
-	"#2aa198",
-	"#073642",
+	/* 8 normal colors
+	"#D9D7D8",
+	"#B4B8C4",
+	"#8E98AC",
+	"#D0AF8D",
+	"#75675F",
+	"#A28D76",
+	"#574A44",
+	"#392B25",
 
-	/* 8 bright colors */
-	"#fdf6e3",
-	"#cb4b16",
-	"#93a1a1",
-	"#839496",
-	"#657b83",
-	"#6c71c4",
-	"#586e75",
-	"#002b36",
+	 8 bright colors
+	"#657694",
+	"red",
+	"green",
+	"yellow",
+	"#F5F3F2",
+	"magenta",
+	"cyan",
+	"white",
 
 	[255] = 0,
 
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
+	"#657694",
+	"#555555",*/
+	
+	"#073642",  /*  0: black    */
+	"#dc322f",  /*  1: red      */
+	"#859900",  /*  2: green    */
+	"#b58900",  /*  3: yellow   */
+	"#268bd2",  /*  4: blue     */
+	"#d33682",  /*  5: magenta  */
+	"#2aa198",  /*  6: cyan     */
+	"#eee8d5",  /*  7: white    */
+	"#002b36",  /*  8: brblack  */
+	"#cb4b16",  /*  9: brred    */
+	"#586e75",  /* 10: brgreen  */
+	"#657b83",  /* 11: bryellow */
+	"#839496",  /* 12: brblue   */
+	"#6c71c4",  /* 13: brmagenta*/
+	"#93a1a1",  /* 14: brcyan   */
+	"#fdf6e3",  /* 15: brwhite  */
+
 };
 
 
@@ -119,7 +136,7 @@ static const char *colorname[] = {
 unsigned int defaultfg = 12;
 unsigned int defaultbg = 8;
 static unsigned int defaultcs = 14;
-static unsigned int defaultrcs = 14;
+static unsigned int defaultrcs = 15;
 
 /*
  * Default shape of cursor
