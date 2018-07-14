@@ -57,6 +57,8 @@ battery(){
 	let "level = level0/2 + level1/2"
 	if [[ $level > 80 ]]; then
 		echo "\uf240    $level"
+	elif [[ $level = 100 ]]; then 
+		echo "\uf240    $level"
 	elif [[ $level > 60 ]]; then
 		echo "\uf241    $level"
 	elif [[ $level > 40 ]]; then
@@ -71,13 +73,13 @@ battery(){
 
 update(){
 	while true; do
-		echo -e "%{F#839496}%{B#12333b}%{l}$(g)$(backlight)$(g)$(network)$(g)$(ac)$(g)%{r}%{B#12333b}$(g)$(volume)$(g)$(battery)$(g)%{B#839496}%{F#071d22}$(g)$(clock)$(g)%{B#071d22}"
+		echo -e "%{F#839496}%{F#ffffff}%{B#12333b}%{l}$(g)$(backlight)$(g)$(network)$(g)$(ac)$(g)%{r}%{B#12333b}$(g)$(volume)$(g)$(battery)$(g)%{B#839496}%{F#071d22}$(g)$(clock)$(g)%{B#071d22}"
 		sleep 1
 	done
 }
 
 update | lemonbar \
 	-f "IBM Plex Sans Regular:size=12" -f "Font Awesome:size=14" \
-	-g 1920x33+0+0 \
+	-g 1920x33+0+1047 \
 	-B#071d22
 	#-g 1366x24+0+0 \
