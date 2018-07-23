@@ -44,7 +44,7 @@ mute(){
 }
 
 volume(){
-	echo -e "$(mute)  $(amixer -c 0 get Master | awk '/Mono:/ {print $4}' | tr -d '[]%,')"
+	echo -e "$(mute) $(amixer -c 0 get Master | awk '/Mono:/ {print $4}' | tr -d '[]%,')"
 }
 
 battery(){
@@ -52,45 +52,45 @@ battery(){
 	local level1=$(acpi --battery | grep 'Battery 1' | cut -d, -f2 | tr -d ' []%')
 	let "level = level0/2 + level1/2"
 	if [[ $level > 80 ]]; then
-		echo "\uf240  $level"
+		echo "\uf240 $level"
 	elif [[ $level = 100 ]]; then 
-		echo "\uf240  $level"
+		echo "\uf240 $level"
 	elif [[ $level > 60 ]]; then
-		echo "\uf241  $level"
+		echo "\uf241 $level"
 	elif [[ $level > 40 ]]; then
-		echo "\uf242  $level"
+		echo "\uf242 $level"
 	elif [[ $level > 20 ]]; then
-		echo "\uf243  $level"
+		echo "\uf243 $level"
 	else
-		echo "\uf244    $level"
+		echo "\uf244 $level"
 	fi
 
 }
 
 bar0(){
     while true; do
-	echo -e "%{F#ffffff}%{c}$(clock)"
+	echo -e "%{F#000000}%{c}$(clock)"
     	sleep 1
     done
 }
 
 bar1(){
     while true; do
-    	echo -e "%{F#ffffff}%{c}$(day)"
+    	echo -e "%{F#000000}%{c}$(day)"
     	sleep 1
     done
 }
 
 bar2(){
     while true; do
-	echo -e "%{F#ffffff}%{c}$(backlight)    $(network)    $(ac)"
+	echo -e "%{F#000000}%{c}$(backlight)    $(network)    $(ac)"
     	sleep 1
     done
 }
 
 bar3(){
     while true; do
-    	echo -e "%{F#ffffff}%{c}$(battery)  / $(volume)"
+    	echo -e "%{F#000000}%{c}$(battery)  /  $(volume)"
     	sleep 1
     done
 }
