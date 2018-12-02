@@ -5,9 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-//static char *font = "Noto Sans Mono:size=10:antialias=true:autohint=true";
-static char *font = "IBM Plex Mono:size=10:antialias=true:autohint=true";
-static int borderpx = 16;
+static char *font = "IBM Plex Mono:size=11:antialias=true:autohint=true";
+static int borderpx = 24;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -43,7 +42,7 @@ static unsigned int tripleclicktimeout = 600;
 int allowaltscreen = 1;
 
 /* frames per second st should at maximum draw to the screen */
-static unsigned int xfps = 120;
+static unsigned int xfps = 1200;
 static unsigned int actionfps = 30;
 
 /*
@@ -64,7 +63,7 @@ static unsigned int cursorthickness = 2;
 static int bellvolume = 0;
 
 /* default TERM value */
-char *termname = "st-256color";
+char *termname = "st";
 
 /*
  * spaces per tab
@@ -85,48 +84,22 @@ unsigned int tabspaces = 8;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	/* 8 normal colors
-	"#D9D7D8",
-	"#B4B8C4",
-	"#8E98AC",
-	"#D0AF8D",
-	"#75675F",
-	"#A28D76",
-	"#574A44",
-	"#392B25",
-
-	 8 bright colors
-	"#657694",
-	"red",
-	"green",
-	"yellow",
-	"#F5F3F2",
-	"magenta",
-	"cyan",
-	"white",
-
-	[255] = 0,
-
-	"#657694",
-	"#555555",*/
-	
-	"#071d22",  /*  0: black    */
-	"#dc322f",  /*  1: red      */
-	"#859900",  /*  2: green    */
-	"#b58900",  /*  3: yellow   */
-	"#268bd2",  /*  4: blue     */
-	"#d33682",  /*  5: magenta  */
-	"#2aa198",  /*  6: cyan     */
-	"#eee8d5",  /*  7: white    */
-	"#002b36",  /*  8: brblack  */
-	"#cb4b16",  /*  9: brred    */
-	"#586e75",  /* 10: brgreen  */
-	"#657b83",  /* 11: bryellow */
-	"#839496",  /* 12: brblue   */
-	"#6c71c4",  /* 13: brmagenta*/
-	"#93a1a1",  /* 14: brcyan   */
-	"#fdf6e3",  /* 15: brwhite  */
-
+ "#3B4252",
+ "#BF616A",
+ "#A3BE8C",
+ "#EBCB8B",
+ "#81A1C1",
+ "#B48EAD",
+ "#88C0D0",
+ "#E5E9F0",
+ "#4C566A",
+ "#BF616A",
+ "#A3BE8C",
+ "#EBCB8B",
+ "#81A1C1",
+ "#B48EAD",
+ "#8FBCBB",
+ "#ECEFF4",
 };
 
 
@@ -134,10 +107,10 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 12;
+unsigned int defaultfg = 4;
 unsigned int defaultbg = 0;
-static unsigned int defaultcs = 14;
-static unsigned int defaultrcs = 15;
+static unsigned int defaultcs = 4;
+static unsigned int defaultrcs = 0;
 
 /*
  * Default shape of cursor
@@ -146,7 +119,7 @@ static unsigned int defaultrcs = 15;
  * 6: Bar ("|")
  * 7: Snowman ("☃")
  */
-static unsigned int cursorshape = 4;
+static unsigned int cursorshape = 2;
 
 /*
  * Default columns and rows numbers
@@ -196,6 +169,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
 	{ TERMMOD,              XK_I,           iso14755,       {.i =  0} },
+	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
+	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
 };
 
 /*
