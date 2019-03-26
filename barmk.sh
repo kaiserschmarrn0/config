@@ -78,7 +78,7 @@ update(){
 
 update | lemonbar \
 	-f "IBM Plex Sans Regular:size=12" -f "Font Awesome:size=14" \
- -g 1920x32+0+1048 \
+	-g 1920x32+0+1048 \
 	-B#C03b4252
 	#-g 1920x33+0+0 \
-#-g 1366x24+0+0 \
+	#-g 1366x24+0+0 \
