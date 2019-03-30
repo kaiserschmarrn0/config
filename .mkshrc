@@ -1,0 +1,8 @@
+alias ls='ls --color'
+alias vim='vim-x11'
+alias sxiv='sxiv -a'
+
+export DOTNET_ROOT=$HOME/dotnet
+export PATH=$PATH:$HOME/dotnet
+
+PS1='$(echo -e "\033[37m$(pwd) \033[00m~ ")'
