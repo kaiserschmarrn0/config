@@ -1,0 +1,30 @@
+#!/bin/rc
+
+while (~ $1 -*) {
+	switch($1) {
+	case -i
+		install -Dm755 me.rc '/usr/bin/me'
+	case -s
+		scrot me-`{ date +%H:%M:%S_%Y-%m-%d | tr -d '\n' }^.png
+	case *
+		echo $1 ?
+	}
+	shift
+}
+
+os=`{ lsb_release -si | tr '[:upper:]' '[:lower:]' }
+mem=`{ free -m | awk '/^Mem/ {printf $3}' }
+pack=`{ xbps-query -l | wc -l }
+sh= `{ basename $SHELL }
+wm=`{ xwininfo -root | cut -s -d '"' -f2 }
+
+cat << EOF
+
+os:	$os	
+mem:	$mem
+pack:	$pack
+term:	$TERM
+sh:	$sh
+wm:	$wm
+
+EOF
