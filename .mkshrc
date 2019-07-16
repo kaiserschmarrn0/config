@@ -1,8 +1,17 @@
 alias ls='ls --color'
 alias vim='vim-x11'
 alias sxiv='sxiv -a'
+alias yts='me'
 
 export DOTNET_ROOT=$HOME/dotnet
 export PATH=$PATH:$HOME/dotnet
 
 PS1='$(echo -e "\033[37m$(pwd) \033[00m~ ")'
+
+if test -z "${XDG_RUNTIME_DIR}"; then
+    export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
+    if ! test -d "${XDG_RUNTIME_DIR}"; then
+        mkdir "${XDG_RUNTIME_DIR}"
+        chmod 0700 "${XDG_RUNTIME_DIR}"
+    fi
+fi
