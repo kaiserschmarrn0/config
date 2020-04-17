@@ -13,6 +13,7 @@ hi EndOfBuffer term=NONE cterm=NONE ctermfg=8 ctermbg=NONE
 set fcs+=eob:\ 
 set fillchars+=vert:\ 
 
+set mouse&
 set mouse=a
 
 set nobackup

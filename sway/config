@@ -22,7 +22,7 @@ set $term alacritty
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/guitarmass.jpg fill
+output * bg ~/guitarmass.png fill
 #
 # Example configuration:
 #
@@ -63,13 +63,15 @@ output * bg ~/guitarmass.jpg fill
 # Basics:
 #
     # Start a terminal
-    bindsym $mod+Return exec $term
+    bindsym $mod+Return exec alacritty
 
     # Kill focused window
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+w exec chromium-browser --enable-features=OverlayScrollbar,OverlayScrollbarFlashAfterAnyScrollUpdate,OverlayScrollbarFlashWhenMouseEnter
+    bindsym $mod+w exec chromium --enable-features=OverlayScrollbar,OverlayScrollbarFlashAfterAnyScrollUpdate,OverlayScrollbarFlashWhenMouseEnter
+
+    bindsym $mod+s exec ~/screenshot.sh
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -144,7 +146,7 @@ output * bg ~/guitarmass.jpg fill
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
+    #bindsym $mod+s layout stacking
     bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
