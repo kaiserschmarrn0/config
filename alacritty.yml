@@ -1,0 +1,41 @@
+title: assfucker
+cursor:
+  style: Underline
+window:
+  padding:
+    x: 12
+    y: 12
+
+font:
+  normal:
+    family: IBM Plex Mono
+  size: 11
+
+colors:
+  primary:
+    background: '0x1E1E1E'
+    foreground: '0xCCCCCC'
+
+  cursor:
+    text: '0x1E1E1E'
+    cursor: '0xCCCCCC'
+
+  normal:
+    black: '0x000000'
+    red: '0xCD3131'
+    green: '0x0DBC79'
+    yellow: '0xE5E510'
+    blue: '0x2472C8'
+    magenta: '0xBC3FBC'
+    cyan: '0x11A8CD'
+    white: '0xE5E5E5'
+
+  bright:
+    black: '0x666666'
+    red: '0xF14C4C'
+    green: '0x23D18B'
+    yellow: '0xF5F543'
+    blue: '0x3B8EEA'
+    magenta: '0xD670D6'
+    cyan: '0x29B8DB'
+    white: '0xE5E5E5'

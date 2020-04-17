@@ -1,0 +1,13 @@
+{
+    "layer": "top",
+	"position": "bottom",
+    "modules-left": ["sway/workspaces"],
+	"modules-right": ["clock", "battery"],
+	"battery": {
+		"format": "{capacity}% {icon}",
+		"format-icons": ["", "", "", "", ""]
+	},
+	"clock": {
+		"format-alt": "{:%a, %d. %b  %H:%M}"
+	}
+}

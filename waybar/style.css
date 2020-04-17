@@ -1,0 +1,38 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "IBM Plex Mono", "Font Awesome 5 Free";
+    font-size: 15px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: #1E1E1E;
+    color: #CCCCCC;
+}
+
+#clock {
+    padding: 0 10px;
+    background: #2D2D2D;
+}
+
+#battery {
+    padding: 0 10px;
+    /*padding-right: 20px;*/
+    background: #2D2D2D;
+}
+
+#workspaces button {
+    background: #2D2D2D;
+    color: #CCCCCC;
+}
+
+#workspaces button.focused {
+    background: #1E1E1E;    
+    color: #E5E5E5;
+}
+
+#battery {
+    background: #CD3131;
+    color: #CCCCCC;
+}

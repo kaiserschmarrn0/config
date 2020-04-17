@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/home/j/cs1332/hw10'
+let g:netrw_dirhist_9='/home/j/cs1332/hw9'
+let g:netrw_dirhist_8='/home/j/.config'
+let g:netrw_dirhist_7='/home/j/.config/sway'
+let g:netrw_dirhist_6='/home/j/.config'
+let g:netrw_dirhist_5='/home/j/.config/sway'
+let g:netrw_dirhist_4='/home/j/.config/waybar'
+let g:netrw_dirhist_3='/home/j/.config'
+let g:netrw_dirhist_2='/home/j'
+let g:netrw_dirhist_1='/home/j/.config'
