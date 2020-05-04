@@ -72,6 +72,8 @@ output * bg ~/guitarmass.png fill
     bindsym $mod+w exec chromium --enable-features=OverlayScrollbar,OverlayScrollbarFlashAfterAnyScrollUpdate,OverlayScrollbarFlashWhenMouseEnter
 
     bindsym $mod+s exec ~/screenshot.sh
+    bindsym $mod+k exec krita
+    bindsym $mod+d exec ~/Discord.sh
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -91,7 +93,6 @@ output * bg ~/guitarmass.png fill
     # Move your focus around
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
     bindsym $mod+$right focus right
     # Or use $mod+[up|down|left|right]
     bindsym $mod+Left focus left
@@ -102,7 +103,6 @@ output * bg ~/guitarmass.png fill
     # Move the focused window with the same, but add Shift
     bindsym $mod+Shift+$left move left
     bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
     bindsym $mod+Shift+$right move right
     # Ditto, with arrow keys
     bindsym $mod+Shift+Left move left
@@ -182,7 +182,6 @@ mode "resize" {
     # down will grow the containers height
     bindsym $left resize shrink width 10px
     bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
     bindsym $right resize grow width 10px
 
     # Ditto, with arrow keys
