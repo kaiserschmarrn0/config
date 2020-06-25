@@ -11,7 +11,7 @@ set $mod Mod4
 # Home row direction keys, like vim
 set $left h
 set $down j
-set $up k
+#set $up k
 set $right l
 # Your preferred terminal emulator
 set $term alacritty
@@ -22,13 +22,17 @@ set $term alacritty
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/guitarmass.png fill
+#output * bg ~/guitarmass.png fill
+output * bg ~/miku.jpeg fill
 #
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+
+output HDMI-A-1 res 1920x1080@75Hz
+output DP-1 res 1920x1080@75Hz
 
 ### Idle configuration
 #
@@ -73,6 +77,12 @@ output * bg ~/guitarmass.png fill
 
     bindsym $mod+s exec ~/screenshot.sh
 
+    bindsym $mod+k exec krita
+
+    bindsym $mod+d exec ~/discord.sh
+
+    bindsym $mod+c exec code-oss
+
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
@@ -91,7 +101,7 @@ output * bg ~/guitarmass.png fill
     # Move your focus around
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
+    #bindsym $mod+$up focus up
     bindsym $mod+$right focus right
     # Or use $mod+[up|down|left|right]
     bindsym $mod+Left focus left
@@ -102,7 +112,7 @@ output * bg ~/guitarmass.png fill
     # Move the focused window with the same, but add Shift
     bindsym $mod+Shift+$left move left
     bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
+    #bindsym $mod+Shift+$up move up
     bindsym $mod+Shift+$right move right
     # Ditto, with arrow keys
     bindsym $mod+Shift+Left move left
@@ -182,7 +192,7 @@ mode "resize" {
     # down will grow the containers height
     bindsym $left resize shrink width 10px
     bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
+    #bindsym $up resize shrink height 10px
     bindsym $right resize grow width 10px
 
     # Ditto, with arrow keys
@@ -208,4 +218,15 @@ client.unfocused #252526 #252526 #CCCCCC #000000 #000000
 client.urgent #252526 #252526 #CCCCCC #000000 #000000
 client.placeholder #252526 #252526 #CCCCCC #000000 #000000
 
+input "1386:827:Wacom_Intuos_S_2_Pad" {
+    #map_to_region 0 0 1920 1080
+    map_to_output HDMI-A-1
+}
+
+input "1386:827:Wacom_Intuos_S_2_Pen" {
+    #map_to_region 0 0 1920 1080
+    map_to_output HDMI-A-1
+}
+
+exec pulseaudio -D
 exec waybar

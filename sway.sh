@@ -1,3 +1,4 @@
-#!/bin/ash
+#!/bin/sh
 
-XDG_RUNTIME_DIR=/tmp sway
+mkdir -p /tmp/sway
+XDG_RUNTIME_DIR=/tmp/sway ~/sway/build/sway/sway -d 2> ~/sway.log
